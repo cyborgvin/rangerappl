@@ -1,0 +1,22 @@
+.map-container {
+  height: 200px;
+  width: '100%';
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.sidebarStyle {
+  display: inline-block;
+  position: absolute;
+  width: 300px;
+  top: 10;
+  left: 50;
+  margin: 12px;
+  background-color: #404040;
+  color: #ffffff;
+  z-index: 1 !important;
+  padding: 3px;
+  font-weight: bold;
+}
