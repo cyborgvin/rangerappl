@@ -140,8 +140,6 @@ const List = () => {
         {todos.map((todo) => (
           <li key={todo.id}>
             {todo.text}
-            {lat.text}
-            {long.text}
             <button className="button-3" onClick={() => handleEditClick(todo)}>Edit</button>
             <button className="button-3" onClick={() => handleDeleteClick(todo.id)}>Delete</button>
           </li>
