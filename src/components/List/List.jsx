@@ -6,7 +6,6 @@ import { geolocated } from 'react-geolocated';
 
 const List = () => {
 
-  //for geolocation coords
     const [todos, setTodos] = useState(() => {
     const savedTodos = localStorage.getItem("todos");
     if (savedTodos) {
