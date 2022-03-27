@@ -118,12 +118,14 @@ const List = () => {
 
           <input
           name="lat"
+          type="text"
           value={geolocation.latitude}
           onchange={handleInputChange}
           />
 
           <input
-          name="lat"
+          name="long"
+          type="text"
           value={geolocation.longitude}
           onchange={handleInputChange}
           />
@@ -138,8 +140,8 @@ const List = () => {
         {todos.map((todo) => (
           <li key={todo.id}>
             {todo.text}
-            {lat.geolocation.latitude}
-            {lat.geolocation.longitude}
+            {lat.text}
+            {long.text}
             <button className="button-3" onClick={() => handleEditClick(todo)}>Edit</button>
             <button className="button-3" onClick={() => handleDeleteClick(todo.id)}>Delete</button>
           </li>
