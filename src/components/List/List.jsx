@@ -134,8 +134,6 @@ const List = () => {
         </form>
       )}
 
-
-
       <ul className="todo-list">
         {todos.map((todo) => (
           <li key={todo.id}>
