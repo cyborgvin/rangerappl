@@ -87,7 +87,9 @@ const List = () => {
     return (
       <div className="App">
 
-        <h1>change</h1>
+        <h2>Ranger Location</h2>
+        <li>Latitude:          {geolocation.latitude}</li>
+        <li>Longitude:         {geolocation.longitude}</li>
        
       {isEditing ? (
         <form onSubmit={handleEditFormSubmit}>
@@ -124,7 +126,7 @@ const List = () => {
           />
 
           <input
-          name="long"
+          name="lat"
           type="text"
           value={geolocation.longitude}
           onchange={handleInputChange}
@@ -134,10 +136,13 @@ const List = () => {
         </form>
       )}
 
+
+
       <ul className="todo-list">
         {todos.map((todo) => (
           <li key={todo.id}>
             {todo.text}
+            {geolocation.latitude}
             <button className="button-3" onClick={() => handleEditClick(todo)}>Edit</button>
             <button className="button-3" onClick={() => handleDeleteClick(todo.id)}>Delete</button>
           </li>
