@@ -116,6 +116,19 @@ const List = () => {
             value={todo}
             onChange={handleInputChange}
           />
+
+          <input
+          name="lat"
+          value={geolocation.latitude}
+          onchange={handleInputChange}
+          />
+
+          <input
+          name="lat"
+          value={geolocation.longitude}
+          onchange={handleInputChange}
+          />
+
            <button className="button-3" type="submit">Add</button>
         </form>
       )}
