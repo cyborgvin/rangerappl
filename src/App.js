@@ -41,6 +41,9 @@ function App(props) {
 
         <Grid item xs={5}>
         <Item><List /></Item>
+        </Grid>
+
+        <Grid item xs={5}>
           <Item><Camera /></Item>
         </Grid>
         
