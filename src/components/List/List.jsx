@@ -140,8 +140,7 @@ const List = () => {
       )}
 
       <hr></hr>
-      <br></br>
-      
+
       <ul className="todo-list">
         {todos.map((todo) => (
           <li key={todo.id}>
