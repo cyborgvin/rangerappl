@@ -90,6 +90,7 @@ const List = () => {
         <h2>Ranger Location</h2>
         <li>Latitude:          {geolocation.latitude}</li>
         <li>Longitude:         {geolocation.longitude}</li>
+        <br></br>
        
       {isEditing ? (
         <form onSubmit={handleEditFormSubmit}>
@@ -107,6 +108,8 @@ const List = () => {
       ) : (
           
           <form onSubmit={handleFormSubmit}>
+
+          <hr></hr>
 
           <h2>Report Issue</h2>
 
@@ -141,8 +144,9 @@ const List = () => {
       <ul className="todo-list">
         {todos.map((todo) => (
           <li key={todo.id}>
-            {todo.text}
-            {geolocation.latitude}
+            {todo.text} | 
+            {geolocation.latitude} | 
+            {geolocation.longitude}
             <button className="button-3" onClick={() => handleEditClick(todo)}>Edit</button>
             <button className="button-3" onClick={() => handleDeleteClick(todo.id)}>Delete</button>
           </li>
