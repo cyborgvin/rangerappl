@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./List.css";
@@ -6,7 +6,8 @@ import { geolocated } from 'react-geolocated';
 
 const List = () => {
 
-  const [todos, setTodos] = useState(() => {
+  //for geolocation coords
+    const [todos, setTodos] = useState(() => {
     const savedTodos = localStorage.getItem("todos");
     if (savedTodos) {
       return JSON.parse(savedTodos);
@@ -15,10 +16,27 @@ const List = () => {
     }
   });
   
+    //coords to dispaly, usestate = center on pollock country park
+    const [lng, setLng] = useState(-4.3152);
+    const [lat, setLat] = useState(55.8275);
+    const [zoom, setZoom] = useState(14);
+  
   const [todo, setTodo] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [currentTodo, setCurrentTodo] = useState({});
 
+          // adds geolocate control 
+          map.addControl(
+            new mapboxgl.GeolocateControl({
+                positionOptions: {
+                    enableHighAccuracy: true
+                },
+                // When active the map will receive updates to the device's location as it changes.
+                trackUserLocation: true,
+                // Draw an arrow next to the location dot to indicate which direction the device is heading.
+                showUserHeading: true
+            })
+        );
 
   //displays items
   useEffect(() => {
@@ -34,6 +52,7 @@ const List = () => {
     console.log(currentTodo);
   }
 
+  //CREATE
   function handleFormSubmit(e) {
     e.preventDefault();
 
@@ -50,6 +69,7 @@ const List = () => {
     setTodo("");
   }
 
+   // EDIT
   function handleEditFormSubmit(e) {
     e.preventDefault();
 
@@ -63,7 +83,7 @@ const List = () => {
     setTodos(removeItem);
   }
 
-   // EDIT
+
   function handleUpdateTodo(id, updatedTodo) {
     const updatedItem = todos.map((todo) => {
       return todo.id === id ? updatedTodo : todo;
@@ -76,6 +96,8 @@ const List = () => {
     setIsEditing(true);
     setCurrentTodo({ ...todo });
   }
+
+  
 
     return (
       <div className="App">
@@ -104,6 +126,12 @@ const List = () => {
             placeholder="Report an issue"
             value={todo}
             onChange={handleInputChange}
+          />
+          <input
+          name="issuelocation"
+          type="text"
+          value={lng}
+          onChange={handleInputChange}
           />
            <button className="button-3" type="submit">Add</button>
         </form>
