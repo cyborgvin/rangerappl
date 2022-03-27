@@ -3,8 +3,12 @@ import { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./List.css";
 import { geolocated } from 'react-geolocated';
+import useGeolocation from 'react-hook-geolocation'
+
 
 const List = () => {
+
+  const geolocation = useGeolocation()
 
     const [todos, setTodos] = useState(() => {
     const savedTodos = localStorage.getItem("todos");
@@ -14,28 +18,10 @@ const List = () => {
       return [];
     }
   });
-  
-    //coords to dispaly, usestate = center on pollock country park
-    const [lng, setLng] = useState(-4.3152);
-    const [lat, setLat] = useState(55.8275);
-    const [zoom, setZoom] = useState(14);
-  
+    
   const [todo, setTodo] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [currentTodo, setCurrentTodo] = useState({});
-
-          // adds geolocate control 
-          map.addControl(
-            new mapboxgl.GeolocateControl({
-                positionOptions: {
-                    enableHighAccuracy: true
-                },
-                // When active the map will receive updates to the device's location as it changes.
-                trackUserLocation: true,
-                // Draw an arrow next to the location dot to indicate which direction the device is heading.
-                showUserHeading: true
-            })
-        );
 
   //displays items
   useEffect(() => {
@@ -100,6 +86,10 @@ const List = () => {
 
     return (
       <div className="App">
+
+        <ul> <li>Latitude:          {geolocation.latitude}</li>
+        <li>Longitude:         {geolocation.longitude}</li></ul>
+        
       {isEditing ? (
         <form onSubmit={handleEditFormSubmit}>
           <h2>Edit</h2>
@@ -125,12 +115,6 @@ const List = () => {
             placeholder="Report an issue"
             value={todo}
             onChange={handleInputChange}
-          />
-          <input
-          name="issuelocation"
-          type="text"
-          value={lng}
-          onChange={handleInputChange}
           />
            <button className="button-3" type="submit">Add</button>
         </form>

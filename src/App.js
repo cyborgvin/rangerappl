@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { CssBaseline, Grid, Paper, styled, Box } from '@material-ui/core';
 import { nanoid } from "nanoid";
 import { v4 as uuidv4 } from 'uuid';
+import useGeolocation from 'react-hook-geolocation';
 
 import List from './components/List/List';
 import Camera from "./components/Camera/Camera";
