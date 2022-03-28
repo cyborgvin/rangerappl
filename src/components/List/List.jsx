@@ -4,15 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./List.css";
 import { geolocated } from 'react-geolocated';
 import useGeolocation from 'react-hook-geolocation'
+import { LngLat } from 'mapbox-gl';
 
 
 const List = () => {
 
     const geolocation = useGeolocation()
 
-    //var lattxt = geolocation.latitude;
-   // var longtxt = geolocation.longitude;
-    //this.setState({longitude: {longtxt}, latitude: {lattxt}});
 
     const [todos, setTodos] = useState(() => {
     const savedTodos = localStorage.getItem("todos");
@@ -133,7 +131,7 @@ const List = () => {
           />
           <br></br>
           <input
-          name="lat"
+          name="lng"
           type="text"
           value={geolocation.longitude}
           onchange={handleInputChange}
@@ -149,8 +147,8 @@ const List = () => {
         {todos.map((todo) => (
           <li key={todo.id}>
             {todo.text} <br></br>
-            ({geolocation.latitude},
-            {geolocation.longitude})
+            ({lat.text},
+            {lng.text})
             <br></br>
             <button className="button-3" onClick={() => handleEditClick(todo)}>Edit</button>
             <button className="button-3" onClick={() => handleDeleteClick(todo.id)}>Delete</button>
