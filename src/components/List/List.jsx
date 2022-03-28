@@ -151,7 +151,7 @@ const List = () => {
         {todos.map((todo) => (
           <li key={todo.id}>
             {todo.text} <br></br>
-            ({lattxt},
+            ({geolocation.latitude},
             {geolocation.longitude})
             <br></br>
             <button className="button-3" onClick={() => handleEditClick(todo)}>Edit</button>
