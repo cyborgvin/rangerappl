@@ -8,13 +8,11 @@ import useGeolocation from 'react-hook-geolocation'
 
 const List = () => {
 
-  //const geolocation = useGeolocation()
-
     const geolocation = useGeolocation()
 
-    var lattxt = geolocation.latitude;
-    var longtxt = geolocation.longitude;
-    this.setState({longitude: {longtxt}, latitude: {lattxt}});
+    //var lattxt = geolocation.latitude;
+   // var longtxt = geolocation.longitude;
+    //this.setState({longitude: {longtxt}, latitude: {lattxt}});
 
     const [todos, setTodos] = useState(() => {
     const savedTodos = localStorage.getItem("todos");
