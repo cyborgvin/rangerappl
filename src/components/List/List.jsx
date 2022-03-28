@@ -12,6 +12,10 @@ const List = () => {
 
     const geolocation = useGeolocation()
 
+    var lattxt = geolocation.latitude;
+    var longtxt = geolocation.longitude;
+    this.setState({longitude: {longtxt}, latitude: {lattxt}});
+
     const [todos, setTodos] = useState(() => {
     const savedTodos = localStorage.getItem("todos");
     if (savedTodos) {
@@ -126,7 +130,7 @@ const List = () => {
           <input
           name="lat"
           type="text"
-          value={this.state.geolocation.latitude}
+          value={geolocation.latitude}
           onchange={handleInputChange}
           />
           <br></br>
@@ -147,7 +151,7 @@ const List = () => {
         {todos.map((todo) => (
           <li key={todo.id}>
             {todo.text} <br></br>
-            ({geolocation.latitude},
+            ({lattxt},
             {geolocation.longitude})
             <br></br>
             <button className="button-3" onClick={() => handleEditClick(todo)}>Edit</button>
