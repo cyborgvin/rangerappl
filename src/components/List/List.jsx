@@ -126,7 +126,7 @@ const List = () => {
           <input
           name="lat"
           type="text"
-          value={this.state.latitude}
+          value="boop"
           onchange={handleInputChange}
           />
           <br></br>
