@@ -126,7 +126,7 @@ const List = () => {
           <input
           name="lat"
           type="text"
-          value="boop"
+          value={this.state.geolocation.latitude}
           onchange={handleInputChange}
           />
           <br></br>
