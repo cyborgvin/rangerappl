@@ -8,7 +8,9 @@ import useGeolocation from 'react-hook-geolocation'
 
 const List = () => {
 
-  const geolocation = useGeolocation()
+  //const geolocation = useGeolocation()
+
+    const geolocation = useGeolocation()
 
     const [todos, setTodos] = useState(() => {
     const savedTodos = localStorage.getItem("todos");
@@ -124,7 +126,7 @@ const List = () => {
           <input
           name="lat"
           type="text"
-          value={geolocation.latitude}
+          value={this.state.latitude}
           onchange={handleInputChange}
           />
           <br></br>
