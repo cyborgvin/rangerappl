@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./List.css";
 import { geolocated } from 'react-geolocated';
 import useGeolocation from 'react-hook-geolocation'
-import { LngLat } from 'mapbox-gl';
 
 
 const List = () => {
@@ -147,8 +146,8 @@ const List = () => {
         {todos.map((todo) => (
           <li key={todo.id}>
             {todo.text} <br></br>
-            ({lat.text},
-            {lng.text})
+            ({todo.geolocation.latitude},
+            {todo.geolocationgeolocation.longitude})
             <br></br>
             <button className="button-3" onClick={() => handleEditClick(todo)}>Edit</button>
             <button className="button-3" onClick={() => handleDeleteClick(todo.id)}>Delete</button>
