@@ -99,7 +99,8 @@ const List = () => {
       <div className="App">
 
         <h2>Ranger Location</h2>
-        <br>{geolocation.latitude}, {geolocation.longitude}</br>
+{geolocation.latitude}, {geolocation.longitude}
+<br></br>
        
       {isEditing ? (
         <form onSubmit={handleEditFormSubmit}>
