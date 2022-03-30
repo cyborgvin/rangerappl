@@ -145,8 +145,8 @@ const List = () => {
         {todos.map((todo) => (
           <li key={todo.id}>
             {todo.text} <br></br>
-            ({geolocation.latitude},
-            {geolocation.longitude})
+            ({todo.lat},
+            {todo.lng})
             <br></br>
             <button className="button-3" onClick={() => handleEditClick(todo)}>Edit</button>
             <button className="button-3" onClick={() => handleDeleteClick(todo.id)}>Delete</button>
