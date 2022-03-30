@@ -145,7 +145,7 @@ const List = () => {
           />
           <br></br>
           
-          <input type="file" name="img" accept="image/*" capture="camera"></input>
+          
 
            <button className="button-3" type="submit">Add</button>
         </form>
