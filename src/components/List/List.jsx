@@ -92,10 +92,6 @@ const List = () => {
     setIsEditing(true);
     setCurrentTodo({ ...todo });
   }
-
-  function fileSelectedHandler(event) {
-    console.log(event.target.files[0]);
-  }
   
 
     return (
@@ -149,8 +145,9 @@ const List = () => {
           <br></br>
           <input 
           type="file"
-          onChange={this.fileSelectedHandler}
+          onChange={this.fileChangedHandler}
           />
+          <button onClick={this.uploadHandler}>Upload</button>
            <button className="button-3" type="submit">Add</button>
         </form>
       )}
