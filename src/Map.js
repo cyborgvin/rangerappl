@@ -31,12 +31,16 @@ const Map = () => {
               // When active the map will receive updates to the device's location as it changes.
               trackUserLocation: true,
               // Draw an arrow next to the location dot to indicate which direction the device is heading.
-              showUserHeading: true
+              showUserHeading: true,
+              //show compass
+              showCompass: true
           })
       );
 
     // add navigation control buttons
     map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+
+
 
     map.on('move', () => {
       setLng(map.getCenter().lng.toFixed(4));
