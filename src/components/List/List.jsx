@@ -35,7 +35,7 @@ const List = () => {
   }
 
   function handleEditInputChange(e) {
-    setCurrentTodo({ ...currentTodo, text: e.target.value, lat: geolocation.latitude, lng: geolocation.longitude });
+    setCurrentTodo({ ...currentTodo, text: e.target.value});
     console.log(currentTodo);
   }
 
@@ -48,7 +48,9 @@ const List = () => {
         ...todos,
         {
           id: todos.length + 1,
-          text: todo.trim()
+          text: todo.trim(),
+          lat: geolocation.latitude,
+          lng: geolocation.longitude
         }
       ]);
     }
