@@ -20,6 +20,7 @@ const Map = () => {
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [lng, lat],
       zoom: zoom
+      
     });
 
         // adds geolocate control 
@@ -31,14 +32,17 @@ const Map = () => {
               // When active the map will receive updates to the device's location as it changes.
               trackUserLocation: true,
               // Draw an arrow next to the location dot to indicate which direction the device is heading.
-              showUserHeading: true,
-              //show compass
-              showCompass: true
+              showUserHeading: true
+
           })
       );
 
     // add navigation control buttons
-    map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+    map.addControl(new mapboxgl.NavigationControl({
+      showCompass: true
+    }
+
+    ), 'top-right');
 
 
 
