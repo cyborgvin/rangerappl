@@ -24,6 +24,7 @@ const List = () => {
   
   //keeps track of input value
   const [todo, setTodo] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [currentTodo, setCurrentTodo] = useState({});
 
@@ -143,6 +144,12 @@ const List = () => {
           value={geolocation.longitude}
           />
           <br></br>
+          <input
+          type="file"
+          value={selectedFile}
+          onChange={(e) => setSelectedFile(e.target.files[0])}
+          />
+        <br></br>
            <button className="button-3" type="submit">Add</button>
         </form>
       )}
