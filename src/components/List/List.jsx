@@ -92,7 +92,8 @@ const List = () => {
     setIsEditing(true);
     setCurrentTodo({ ...todo });
   }
-  
+
+ 
 
     return (
       <div className="App">
@@ -143,11 +144,6 @@ const List = () => {
           value={geolocation.longitude}
           />
           <br></br>
-          <input 
-          type="file"
-          onChange={this.fileChangedHandler}
-          />
-          <button onClick={this.uploadHandler}>Upload</button>
            <button className="button-3" type="submit">Add</button>
         </form>
       )}
