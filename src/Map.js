@@ -38,7 +38,7 @@ const Map = () => {
     // add navigation control buttons
     map.addControl(new mapboxgl.NavigationControl({
       showCompass: true
-    }), 'top-right');
+    }), 'top-left');
 
 
 
