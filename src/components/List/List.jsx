@@ -31,10 +31,11 @@ const List = () => {
 
   function handleInputChange(e) {
     setTodo(e.target.value);
+
   }
 
   function handleEditInputChange(e) {
-    setCurrentTodo({ ...currentTodo, text: e.target.value });
+    setCurrentTodo({ ...currentTodo, text: e.target.value, lat: geolocation.latitude, lng: geolocation.longitude });
     console.log(currentTodo);
   }
 
@@ -126,14 +127,12 @@ const List = () => {
           name="lat"
           type="text"
           value={geolocation.latitude}
-          onchange={handleInputChange}
           />
           <br></br>
           <input
           name="lng"
           type="text"
           value={geolocation.longitude}
-          onchange={handleInputChange}
           />
           <br></br>
            <button className="button-3" type="submit">Add</button>
