@@ -42,6 +42,7 @@ const List = () => {
   //CREATE
   function handleFormSubmit(e) {
     e.preventDefault();
+    console.log(geolocation.latitude, geolocation.longitude, id, todo.trim())
 
     if (todo !== "") {
       setTodos([
