@@ -12,6 +12,8 @@ const List = () => {
 
 
     const [todos, setTodos] = useState(() => {
+
+    //keeps track of saved todos (local)
     const savedTodos = localStorage.getItem("todos");
     if (savedTodos) {
       return JSON.parse(savedTodos);
@@ -19,7 +21,8 @@ const List = () => {
       return [];
     }
   });
-    
+  
+  //keeps track of input value
   const [todo, setTodo] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [currentTodo, setCurrentTodo] = useState({});
@@ -29,7 +32,9 @@ const List = () => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
+  //gets the input value and sets the new state when created
   function handleInputChange(e) {
+    //sets new value to whats in the input box
     setTodo(e.target.value);
 
   }
@@ -39,10 +44,10 @@ const List = () => {
     console.log(currentTodo);
   }
 
-  //CREATE
+  //CREATE + summons submit form
   function handleFormSubmit(e) {
+    //wont refresh on submit
     e.preventDefault();
-    //window.alert("oi");
     console.log(geolocation.latitude, geolocation.longitude, todos.length + 1, todo.trim())
 
     if (todo !== "") {
@@ -88,6 +93,9 @@ const List = () => {
     setCurrentTodo({ ...todo });
   }
 
+  function fileSelectedHandler(event) {
+    console.log(event.target.files[0]);
+  }
   
 
     return (
@@ -139,6 +147,10 @@ const List = () => {
           value={geolocation.longitude}
           />
           <br></br>
+          <input 
+          type="file"
+          onChange={this.fileSelectedHandler}
+          />
            <button className="button-3" type="submit">Add</button>
         </form>
       )}
