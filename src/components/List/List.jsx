@@ -124,7 +124,7 @@ const List = () => {
             type="text"
             placeholder="Report an issue"
             value={todo}
-
+            onChange={handleInputChange}
           />
           <br></br>
           <input
