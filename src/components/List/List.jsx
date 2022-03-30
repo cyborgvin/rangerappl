@@ -42,7 +42,7 @@ const List = () => {
   //CREATE
   function handleFormSubmit(e) {
     e.preventDefault();
-    window.alert("oi");
+    //window.alert("oi");
     console.log(geolocation.latitude, geolocation.longitude, todos.length + 1, todo.trim())
 
     if (todo !== "") {
