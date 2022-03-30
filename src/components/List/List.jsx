@@ -58,7 +58,7 @@ const List = () => {
           id: todos.length + 1,
           text: todo.trim(),
           lat: geolocation.latitude,
-          lng: geolocation.longitude
+          lng: geolocation.longitude,
         }
       ]);
     }
@@ -144,12 +144,9 @@ const List = () => {
           value={geolocation.longitude}
           />
           <br></br>
-          <input
-          type="file"
-          value={selectedFile}
-          onChange={(e) => setSelectedFile(e.target.files[0])}
-          />
-        <br></br>
+          
+          <input type="file" name="img" accept="image/*" capture="camera"></input>
+
            <button className="button-3" type="submit">Add</button>
         </form>
       )}
