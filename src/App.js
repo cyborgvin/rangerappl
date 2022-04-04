@@ -36,14 +36,13 @@ function App(props) {
 
       <Box sx={{ flexGrow: 1 }}>
 
-      <Grid container spacing={1} columns={1}>
+      <Grid container spacing={1} columns={2}>
 
-        <Grid item xs={5}>
+        <Grid item xs={12}>
           <Item>      <Map /></Item>
         </Grid>
-      </Grid>
 
-        <Grid container spacing={1} columns={2}>
+
         <Grid item xs={5}>
           compass
         </Grid>
