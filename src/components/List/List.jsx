@@ -61,6 +61,7 @@ const List = () => {
           text: todo.trim(),
           lat: geolocation.latitude,
           lng: geolocation.longitude,
+          image: image
         }
       ]);
     }
@@ -126,6 +127,9 @@ const List = () => {
 
           <h2>Report Issue</h2>
 
+          <WebcamCapture />
+          <br></br>
+
           <input
             name="todo"
             type="text"
@@ -146,7 +150,6 @@ const List = () => {
           value={geolocation.longitude}
           />
           <br></br>
-          <WebcamCapture />
 
            <button className="button-3" type="submit">Add</button>
         </form>
@@ -159,7 +162,8 @@ const List = () => {
           <li key={todo.id}>
             {todo.text} <br></br>
             ({todo.lat},
-            {todo.lng})
+            {todo.lng},
+            {todo.image})
             <br></br>
             <button className="button-3" onClick={() => handleEditClick(todo)}>Edit</button>
             <button className="button-3" onClick={() => handleDeleteClick(todo.id)}>Delete</button>
