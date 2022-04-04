@@ -15,7 +15,7 @@ const List = () => {
     const videoConstraints = {
     width: 120,
     height: 100,
-    facingMode: "user"
+    facingMode: "environment"
     };
 
     const capture = React.useCallback(
