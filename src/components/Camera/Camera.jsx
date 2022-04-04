@@ -5,31 +5,67 @@ import { useEffect } from 'react';
 
 const Camera = () => {
 
-  const webcamRef = React.useRef(null);
-  const [imgSrc, setImgSrc] = React.useState(null);
-
-  const capture = React.useCallback(() => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    setImgSrc(imageSrc);
-  }, [webcamRef, setImgSrc]);
-
-  return (
-    <>
-      <Webcam
-        audio={false}
-        ref={webcamRef}
-        screenshotFormat="image/jpeg"
-      />
-      <button onClick={capture}>Capture photo</button>
-      {imgSrc && (
-        <img
-          src={imgSrc}
+    let videoRef = useRef(null);
+    let photoRef = useRef(null)
+  
+    const getVideo = () => {
+      navigator.mediaDevices
+        .getUserMedia({
+          video: true
+        })
+        .then((stream) => {
+          let video = videoRef.current;
+          video.srcObject = stream;
+          video.play();
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    };
+  
+    const takePicture = () => {
+      const width = 500
+      const height = width / (16 / 9)
+      
+      let video = videoRef.current
+      let photo = photoRef.current
+  
+      photo.width = width
+      photo.height = height
+  
+      let ctx = photo.getContext('2d')
+  
+      ctx.drawImage(video, 0, 0, width, height)
+      
+    }
+  
+    const clearImage = () => {
+      let photo = photoRef.current
+      let ctx = photo.getContext('2d')
+  
+      ctx.clearRect(0,0,photo.width,photo.height)
+    }
+  
+    useEffect(() => {
+      getVideo();
+    }, [videoRef]);
+  
+    return (
+      <>
+        <Webcam
+          audio={false}
+          ref={webcamRef}
+          screenshotFormat="image/jpeg"
         />
-      )}
-    </>
-  );
-};
+        <button onClick={capture}>Capture photo</button>
+        {imgSrc && (
+          <img
+            src={imgSrc}
+          />
+        )}
+      </>
+    );
+  };
+  
 
-ReactDOM.render(<Camera />, document.getElementById("root"));
-
-// https://www.npmjs.com/package/react-webcam
+export default Camera;
