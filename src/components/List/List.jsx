@@ -12,6 +12,7 @@ const List = () => {
 
     const geolocation = useGeolocation()
 
+    const [image,setImage]=useState('');
 
     const [todos, setTodos] = useState(() => {
 
