@@ -144,9 +144,7 @@ const List = () => {
           value={geolocation.longitude}
           />
           <br></br>
-          
-          
-          
+          <Webcam />
 
            <button className="button-3" type="submit">Add</button>
         </form>

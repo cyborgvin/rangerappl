@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 import useGeolocation from 'react-hook-geolocation';
 
 import List from './components/List/List';
-import Camera from "./components/Camera/Camera";
+import Webcam from "./components/Camera/Webcam";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
@@ -45,7 +45,7 @@ function App(props) {
         </Grid>
 
         <Grid item xs={5}>
-          <Item><Camera /></Item>
+          <Item>c</Item>
         </Grid>
         
       </Grid>
