@@ -207,7 +207,7 @@ const List = () => {
       <ul className="todo-list">
         {todos.map((todo) => (
           <li key={todo.id}>
-            {todo.text} <br></br>
+            <h3>{todo.text}</h3> <br></br>
             🧭 
             ({todo.lat},
             {todo.lng})
