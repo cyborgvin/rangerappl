@@ -202,10 +202,13 @@ const List = () => {
 
       <hr></hr>
 
+      <h2>Known Issues</h2>
+
       <ul className="todo-list">
         {todos.map((todo) => (
           <li key={todo.id}>
             {todo.text} <br></br>
+            🧭 
             ({todo.lat},
             {todo.lng})
             <br></br>
