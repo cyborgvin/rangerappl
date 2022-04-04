@@ -5,6 +5,8 @@ import "./List.css";
 import { geolocated } from 'react-geolocated';
 import useGeolocation from 'react-hook-geolocation'
 
+import { WebcamCapture } from '../Camera/Webcam';
+
 
 const List = () => {
 
@@ -144,7 +146,7 @@ const List = () => {
           value={geolocation.longitude}
           />
           <br></br>
-          <Webcam />
+          <WebcamCapture />
 
            <button className="button-3" type="submit">Add</button>
         </form>
