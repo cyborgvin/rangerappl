@@ -4,31 +4,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./List.css";
 import { geolocated } from 'react-geolocated';
 import useGeolocation from 'react-hook-geolocation'
-import Webcam from "react-webcam";
 
 import { WebcamCapture } from '../Camera/Webcam';
 
 
 const List = () => {
 
-  //webcam
-    const videoConstraints = {
-    width: 120,
-    height: 100,
-    facingMode: "user"
-    };
-
-    const capture = React.useCallback(
-      () => {
-      const imageSrc = webcamRef.current.getScreenshot();
-      setImage(imageSrc)
-      });
+    const geolocation = useGeolocation()
 
     const [image,setImage]=useState('');
-    const webcamRef = React.useRef(null);
-
-      //geo
-    const geolocation = useGeolocation()
 
     const [todos, setTodos] = useState(() => {
 
@@ -144,35 +128,7 @@ const List = () => {
 
           <h2>Report Issue</h2>
 
-          <div className="webcam-container">
-            <div className="webcam-img">
-
-                {image == '' ? <Webcam
-                    audio={false}
-                    height={100}
-                    ref={webcamRef}
-                    screenshotFormat="image/jpeg"
-                    width={120}
-                    videoConstraints={videoConstraints}
-                /> : <img src={image} />}
-            </div>
-            <div>
-                {image != '' ?
-                    <button onClick={(e) => {
-                        e.preventDefault();
-                        setImage('')
-                    }}
-                        className="webcam-btn">
-                        Retake Image</button> :
-                    <button onClick={(e) => {
-                        e.preventDefault();
-                        capture();
-                    }}
-                       className="webcam-btn">Capture</button>
-                }
-            </div>
-        </div>
-
+          <WebcamCapture />
           <br></br>
 
           <input
