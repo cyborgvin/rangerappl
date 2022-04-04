@@ -48,7 +48,7 @@ export const WebcamCapture = () => {
                         e.preventDefault();
                         capture();
                     }}
-                        className="webcam-btn">Capture</button>
+                       className="webcam-btn">Capture</button>
                 }
             </div>
         </div>
