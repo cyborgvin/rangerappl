@@ -119,9 +119,6 @@ const List = () => {
     return (
       <div className="App">
 
-        <h2>Ranger Location</h2>
-{geolocation.latitude}, {geolocation.longitude}
-<br></br>
        
       {isEditing ? (
         <form onSubmit={handleEditFormSubmit}>
@@ -208,6 +205,7 @@ const List = () => {
             <h3>{todo.text}</h3> 
             <br></br> 
             <img src={todo.image}></img>
+            <br></br>
             ({todo.lat},
             {todo.lng})
             <br></br>
