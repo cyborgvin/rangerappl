@@ -41,7 +41,9 @@ function App(props) {
         <Grid item xs={5}>
           <Item>      <Map /></Item>
         </Grid>
+      </Grid>
 
+        <Grid container spacing={1} columns={2}>
         <Grid item xs={5}>
           compass
         </Grid>

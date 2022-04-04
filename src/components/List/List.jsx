@@ -120,6 +120,10 @@ const List = () => {
       <div className="App">
 
        
+<h2>Ranger Location</h2>
+{geolocation.latitude}, {geolocation.longitude}
+<br></br>
+
       {isEditing ? (
         <form onSubmit={handleEditFormSubmit}>
           <h2>Edit</h2>
