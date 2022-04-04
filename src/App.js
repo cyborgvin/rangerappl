@@ -45,7 +45,7 @@ function App(props) {
         </Grid>
 
         <Grid item xs={5}>
-          <Item>Camera</Item>
+          <Item><Camera /></Item>
         </Grid>
         
       </Grid>
