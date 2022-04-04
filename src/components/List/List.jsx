@@ -207,8 +207,9 @@ const List = () => {
           <li key={todo.id}>
             {todo.text} <br></br>
             ({todo.lat},
-            {todo.lng},
-            <img src={todo.image}></img>)
+            {todo.lng})
+            <br></br>
+            <img src={todo.image}></img>
             <br></br>
             <button className="button-3" onClick={() => handleEditClick(todo)}>Edit</button>
             <button className="button-3" onClick={() => handleDeleteClick(todo.id)}>Delete</button>

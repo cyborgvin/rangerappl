@@ -7,6 +7,10 @@ import { nanoid } from "nanoid";
 import { v4 as uuidv4 } from 'uuid';
 import useGeolocation from 'react-hook-geolocation';
 
+import { render } from 'react-dom';
+import Compass from 'react-Compass';
+import 'react-compass/dist/react-compass.css';
+
 import List from './components/List/List';
 import Webcam from "./components/Camera/Webcam";
 import Header from "./components/Header/Header";
@@ -41,12 +45,14 @@ function App(props) {
         </Grid>
 
         <Grid item xs={5}>
-        <Item><List /></Item>
+        <Compass direction={this.state.newDirection} />
         </Grid>
 
         <Grid item xs={5}>
-          <Item>c</Item>
+        <Item><List /></Item>
         </Grid>
+
+
         
       </Grid>
     </Box>
