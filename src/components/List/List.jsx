@@ -208,7 +208,7 @@ const List = () => {
             {todo.text} <br></br>
             ({todo.lat},
             {todo.lng},
-            {todo.image})
+            <img src="{todo.image}"></img>)
             <br></br>
             <button className="button-3" onClick={() => handleEditClick(todo)}>Edit</button>
             <button className="button-3" onClick={() => handleDeleteClick(todo.id)}>Delete</button>
