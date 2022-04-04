@@ -202,17 +202,14 @@ const List = () => {
 
       <hr></hr>
 
-      <h2>Known Issues</h2>
-
       <ul className="todo-list">
         {todos.map((todo) => (
           <li key={todo.id}>
-            <h3>{todo.text}</h3> <br></br>
-            🧭 
+            <h3>{todo.text}</h3> 
+            <br></br> 
+            <img src={todo.image}></img>
             ({todo.lat},
             {todo.lng})
-            <br></br>
-            <img src={todo.image}></img>
             <br></br>
             <button className="button-3" onClick={() => handleEditClick(todo)}>Edit</button>
             <button className="button-3" onClick={() => handleDeleteClick(todo.id)}>Delete</button>
