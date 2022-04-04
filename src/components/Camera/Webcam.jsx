@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Webcam from "react-webcam";
+import "./Webcam.css";
 
 
 const WebcamComponent = () => <Webcam />;
