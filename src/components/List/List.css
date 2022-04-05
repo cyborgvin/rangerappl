@@ -15,15 +15,12 @@
 ul {
   list-style-type: none;
   width: 500px;
+  text-align: center;
 }
 
 li img {
   float: left;
   margin: 0 15px 0 0;
-}
-
-li p {
-  font: 200 12px/1.5 Georgia, Times New Roman, serif;
 }
 
 li {
