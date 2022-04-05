@@ -3,6 +3,10 @@
 
 }
 
+.input {
+  padding: 2px 13px;
+}
+
 .button-3 {
   appearance: none;
   background-color: #2ea44f;

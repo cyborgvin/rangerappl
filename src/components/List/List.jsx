@@ -178,13 +178,12 @@ const List = () => {
             value={todo}
             onChange={handleInputChange}
           />
-          <br></br>
+
           <input
           name="lat"
           type="text"
           value={geolocation.latitude}
           />
-          <br></br>
           <input
           name="lng"
           type="text"
