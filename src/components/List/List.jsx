@@ -44,11 +44,9 @@ const List = () => {
   
   //keeps track of input value
   const [todo, setTodo] = useState("");
-  const [desc, setDesc] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [currentTodo, setCurrentTodo] = useState({});
-  const [currentDesc, setCurrentDesc] = useState({});
 
   //displays items
   useEffect(() => {
@@ -59,13 +57,11 @@ const List = () => {
   function handleInputChange(e) {
     //sets new value to whats in the input box
     setTodo(e.target.value);
-    setDesc(e.target.value);
 
   }
 
   function handleEditInputChange(e) {
     setCurrentTodo({ ...currentTodo, text: e.target.value});
-    setCurrentDesc({ ...currentDesc, text: e.target.value});
     console.log(currentTodo);
   }
 
@@ -73,7 +69,7 @@ const List = () => {
   function handleFormSubmit(e) {
     //wont refresh on submit
     e.preventDefault();
-    console.log(desc, geolocation.latitude, geolocation.longitude, todos.length + 1, todo.trim())
+    console.log(geolocation.latitude, geolocation.longitude, todos.length + 1, todo.trim())
 
     if (todo !== "") {
       setTodos([
@@ -84,7 +80,6 @@ const List = () => {
           lat: geolocation.latitude,
           lng: geolocation.longitude,
           image: image,
-          desc: desc
         }
       ]);
     }
@@ -136,13 +131,6 @@ const List = () => {
             onChange={handleEditInputChange}
           />
 
-          <input
-            name="editdesc"
-            type="text"
-            placeholder="Edit desc"
-            value={currentTodo.text}
-            onChange={handleEditInputChange}
-          />
 
           <button className="button-3" type="submit">Update</button>
           <button className="button-3" onClick={() => setIsEditing(false)}>Cancel</button>
@@ -194,14 +182,6 @@ const List = () => {
             onChange={handleInputChange}
           />
 
-            <input
-            name="desc"
-            type="text"
-            placeholder="Description of issue"
-            value={desc}
-            onChange={handleInputChange}
-          />
-
           <br></br>
           <input
           name="lat"
@@ -226,14 +206,12 @@ const List = () => {
       <ul className="todo-list">
         {todos.map((todo) => (
           <li key={todo.id}>
-            <b>{todo.text}</b> {todo.desc}
-            
-            ({todo.lat},
-            {todo.lng})
+            <b>{todo.text}</b>({todo.lat}, {todo.lng})
 
             <br></br> 
-            <img src={todo.image}></img>
+            <img width="50%" height="50%" src={todo.image}></img>
             <br></br>
+            
             <button className="button-3" onClick={() => handleEditClick(todo)}>Edit</button>
             <button className="button-3" onClick={() => handleDeleteClick(todo.id)}>Delete</button>
             <hr></hr>
