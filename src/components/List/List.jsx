@@ -7,6 +7,7 @@ import useGeolocation from 'react-hook-geolocation'
 import Webcam from "react-webcam";
 
 import { WebcamCapture } from '../Camera/Webcam';
+import { Grid } from 'react-bootstrap';
 
 
 const List = () => {
@@ -43,6 +44,7 @@ const List = () => {
   
   //keeps track of input value
   const [todo, setTodo] = useState("");
+  const [desc] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [currentTodo, setCurrentTodo] = useState({});
@@ -78,7 +80,8 @@ const List = () => {
           text: todo.trim(),
           lat: geolocation.latitude,
           lng: geolocation.longitude,
-          image: image
+          image: image,
+          desc: desc
         }
       ]);
     }
@@ -179,6 +182,15 @@ const List = () => {
             onChange={handleInputChange}
           />
 
+            <input
+            name="desc"
+            type="text"
+            placeholder="Description of issue"
+            value={desc}
+            onChange={handleInputChange}
+          />
+
+          <br></br>
           <input
           name="lat"
           type="text"
@@ -197,11 +209,16 @@ const List = () => {
 
       <hr></hr>
 
+
+
       <ul className="todo-list">
         {todos.map((todo) => (
           <li key={todo.id}>
-            <b>{todo.text}</b>  ({todo.lat},
+            <b>{todo.text}</b> {todo.desc}
+            
+            ({todo.lat},
             {todo.lng})
+
             <br></br> 
             <img src={todo.image}></img>
             <br></br>
@@ -211,6 +228,7 @@ const List = () => {
           </li>
         ))}
       </ul>
+
     </div>
     );
 }
