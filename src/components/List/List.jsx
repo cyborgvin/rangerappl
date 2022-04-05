@@ -184,12 +184,13 @@ const List = () => {
 
           <br></br>
           <br></br>
-          <input
+          <b>Latitude:</b> <input
           name="lat"
           type="text"
           value={geolocation.latitude}
           />
-          <input
+          <br></br>
+          <b>Longitude:</b> <input
           name="lng"
           type="text"
           value={geolocation.longitude}
