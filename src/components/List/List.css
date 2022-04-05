@@ -1,5 +1,4 @@
 .App {
-background-color: #cde4d3;
 
 }
 
@@ -22,7 +21,6 @@ li img {
   float: left;
   margin: 0 15px 0 0;
   border-radius: 25px;
-  padding: 20px;
 }
 
 li {
