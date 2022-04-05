@@ -135,3 +135,5 @@ const isLocalhost = Boolean(
         });
     }
   }
+
+  export default registerServiceWorker
