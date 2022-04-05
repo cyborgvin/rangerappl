@@ -183,6 +183,7 @@ const List = () => {
           />
 
           <br></br>
+          <br></br>
           <input
           name="lat"
           type="text"
