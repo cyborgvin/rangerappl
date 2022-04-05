@@ -205,18 +205,23 @@ const List = () => {
 
 
       <ul className="todo-list">
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            <b>{todo.text}</b>({todo.lat}, {todo.lng})
 
-            <br></br> 
-            <img class="imgrounded" width="50%" height="50%" src={todo.image}></img>
-            <br></br>
+        {todos.map((todo) => (
+          
+          <li key={todo.id}>
+
+            <img width="50%" height="50%" src={todo.image}></img>
+
+            <h3>{todo.text}</h3>
+            
+            <p>({todo.lat}, {todo.lng})</p>
 
             <button className="button-3" onClick={() => handleEditClick(todo)}>Edit</button>
             <button className="button-3" onClick={() => handleDeleteClick(todo.id)}>Delete</button>
+
             <hr></hr>
           </li>
+        
         ))}
       </ul>
 
